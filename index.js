@@ -147,3 +147,5 @@ switch (team && opponent) {
   default:
     console.log(`MY TEAM: ${team} lost the match against ${opponent} switch`);
 }
+
+console.log("Added this just for fun");
