@@ -53,7 +53,7 @@ const objArr: ObjType[] = [];
 //   return result;
 // };
 
-console.log(add(1, 5));
+// console.log(add(1, 5));
 
 // type Stats = "pending" | "approved" | "rejected";
 // let stat: Stats = "rejected";
