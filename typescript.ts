@@ -29,11 +29,11 @@ type ObjType = {
 const str: string = "Hello World!";
 const num: number = 10;
 
-let str2: string | number;
-let num2: number;
+let str20: string | number;
+let num20: number;
 
-str2 = "Hello World!";
-str2 = 4;
+str20 = "Hello World!";
+str20 = 4;
 
 const bool: boolean = 6 < 10;
 
@@ -42,21 +42,23 @@ const nul: null = null;
 
 const strArr: string[] = ["Hello", "World"];
 const numArr: number[] = [1, 2, 3, 4, 5];
+const boolArr: boolean[] = [true, false, true];
 const combArr: (string | number | boolean)[] = ["Hello", 2, "World", 4, true];
 const objArr: ObjType[] = [];
 
-// const add = (a: number, b: number) => {
-//   if (b === undefined) {
-//     return a;
-//   }
-//   const result = a + b;
-//   return result;
-// };
+const add = (a: number, b: number) => {
+  // if (b === undefined) {
+  //   return a;
+  // }
+  const result = a + b;
+  return result;
+};
 
 // console.log(add(1, 5));
 
-// type Stats = "pending" | "approved" | "rejected";
-// let stat: Stats = "rejected";
+type Stats = "pending" | "approved" | "rejected";
+
+let stat: Stats = "rejected";
 
 // UTILITY TYPES
 // Partial => makes all fields optional
@@ -80,3 +82,7 @@ const example: RecordObjType = {
 };
 
 // BUG: ASSIGNMENT: TRANSFORM ALL THE FUNCTIONS IN functions.js TO USE TYPESCRIPT
+
+const fc = (a: number, b: number) => a + b;
+
+console.log(fc(1, 1));
