@@ -1,4 +1,4 @@
-const obj: ObjType = {
+const objj: ObjType = {
   firstName: "Samson",
   lastName: "Gideon",
   age: 25,
@@ -60,6 +60,57 @@ type Stats = "pending" | "approved" | "rejected";
 
 let stat: Stats = "rejected";
 
+type OB1 = {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  hobby: string;
+};
+
+type OB2 = {
+  age: number;
+  state: string;
+  country: string;
+  streetNumber: 1 | 2 | 3;
+};
+
+// type OB3 = {
+//   firstName: string;
+//   lastName: string;
+//   middleName?: string;
+//   age: number;
+//   address: string;
+//   country: string;
+//   streetNumber: 1 | 2 | 3;
+// }; NOT IDEAL
+
+type OBConcatenate = OB1 & OB2;
+
+const obConcatenate: OBConcatenate = {
+  age: 21,
+  state: "Lagos",
+  country: "Nigeria",
+  firstName: "Gideon",
+  lastName: "Peter",
+  streetNumber: 3,
+  middleName: "Jacob",
+  hobby: "Writing code, watching football.",
+};
+
+const ob1: OB1 = {
+  firstName: "Isaac",
+  lastName: "Newton",
+  middleName: "Philip",
+  hobby: "Playing music, watching the news, playing footbal",
+};
+
+const ob2: OB2 = {
+  age: 50,
+  state: "New York",
+  country: "United States",
+  streetNumber: 1,
+};
+
 // UTILITY TYPES
 // Partial => makes all fields optional
 // Required => makes all fields required
@@ -75,10 +126,12 @@ type ReadonlyObjType = Readonly<ObjType>;
 type PickObjType = Pick<ObjType, "firstName" | "lastName">;
 type OmitObjType = Omit<ObjType, "firstName" | "lastName">;
 type ArrayObjType = Array<ObjType>; // ObjType[]
+type ArrayStringOrNumber = Array<string | number>;
 type RecordObjType = Record<string, string>;
 
 const example: RecordObjType = {
   test: "2",
+  "1 -- adfj aldfj aljdf laldkfj": "3",
 };
 
 // BUG: ASSIGNMENT: TRANSFORM ALL THE FUNCTIONS IN functions.js TO USE TYPESCRIPT
