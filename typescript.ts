@@ -74,15 +74,55 @@ type OB2 = {
   streetNumber: 1 | 2 | 3;
 };
 
-// type OB3 = {
-//   firstName: string;
-//   lastName: string;
-//   middleName?: string;
-//   age: number;
-//   address: string;
-//   country: string;
-//   streetNumber: 1 | 2 | 3;
-// }; NOT IDEAL
+type OB3 = {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  age: number;
+  address: string;
+  country: string;
+  streetNumber: 1 | 2 | 3;
+}; // NOT IDEAL
+
+interface OBInterface1 {
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+}
+
+interface OBInterface2 {
+  age: number;
+  state: string;
+  country: string;
+  streetNumber: 1 | 2 | 3;
+}
+
+interface OBInterface3 extends OBInterface1 {
+  age: number;
+  state: string;
+  country: string;
+  streetNumber: 1 | 2 | 3;
+}
+interface OBInterface4 extends OBInterface1, OBInterface2 {}
+
+const obInterface3: OBInterface3 = {
+  age: 21,
+  state: "Lagos",
+  country: "Nigeria",
+  firstName: "Gideon",
+  lastName: "Peter",
+  streetNumber: 3,
+  middleName: "Jacob",
+};
+const obInterface4: OBInterface4 = {
+  age: 21,
+  state: "Lagos",
+  country: "Nigeria",
+  firstName: "Gideon",
+  lastName: "Peter",
+  streetNumber: 3,
+  middleName: "Jacob",
+};
 
 type OBConcatenate = OB1 & OB2;
 
@@ -123,10 +163,19 @@ const ob2: OB2 = {
 type PartialObjType = Partial<ObjType>;
 type RequiredObjType = Required<PartialObjType>;
 type ReadonlyObjType = Readonly<ObjType>;
+type Clothes = {
+  gucci: string;
+  louisVuitton: string;
+  chanel: string;
+  prada: string;
+};
+type TravelClothes = Pick<Clothes, "louisVuitton" | "chanel">;
+type OmitClothes = Omit<Clothes, "louisVuitton" | "chanel">;
+
 type PickObjType = Pick<ObjType, "firstName" | "lastName">;
 type OmitObjType = Omit<ObjType, "firstName" | "lastName">;
-type ArrayObjType = Array<ObjType>; // ObjType[]
-type ArrayStringOrNumber = Array<string | number>;
+type ArrayObjType = Array<ObjType>; //=> ObjType[]
+type ArrayStringOrNumber = Array<string | number>; // => (string | number)[]
 type RecordObjType = Record<string, string>;
 
 const example: RecordObjType = {
